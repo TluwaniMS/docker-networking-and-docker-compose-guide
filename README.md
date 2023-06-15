@@ -18,7 +18,7 @@ docker network create -d bridge doctors-directory-network
 	- container name: mongo
 
 ```
-docker run -d -p 27017:27017 --name mongo —network=doctors-directory-network mongo
+docker run -d -p 27017:27017 --name mongo --network=doctors-directory-network mongo
 ```
 
 * ### Launch the server container:
