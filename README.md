@@ -28,7 +28,7 @@ docker run -d -p 27017:27017 --name mongo --network=doctors-directory-network mo
 	- environment variable DATABASE_HOST: mongo
 
 ```
-docker run -d --name doctors-directory-server -p 5002:5002 -e DATABASE_HOST=mongo --network=doctors-directory-network tm63/doctors-directory-gql-node-js-server:initial-commit
+docker run -d --name doctors-directory-server -p 5002:5002 -e DATABASE_HOST=mongo --network=doctors-directory-network tm63/doctors-directory-gql-node-js-server:migration-script-int-commit
 ```
 
 * ### Launch the client container:
