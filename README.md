@@ -47,3 +47,62 @@ The bonus guide includes a docker-compose YAML file configuration that simplifie
 # Docker compose:
 
 Docker Compose is a utility that enables the definition and execution of Docker applications consisting of multiple containers. By utilizing a YAML file, Docker Compose facilitates the configuration of application services. With a single command, Docker Compose empowers users to create and launch all services specified in the configuration.
+
+# Docker compose file guide:
+
+* ### service:
+
+A `Service` refers to an abstract representation of a computing resource in an application that can be independently scaled or replaced without affecting other components. `Services` are supported by a collection of containers that are managed by the platform, considering replication needs and placement restrictions.
+
+* ### container_name:
+
+`container_name` represents a string that allows the specification of a personalized name for a container, as opposed to using an automatically generated default name.
+
+* ### depends_on:
+
+`depends_on` is used to indicate the dependencies between services during startup and shutdown processes.
+
+* ### environment:
+
+The `environment` in the container defines the `environment` variables that are configured. This can be done using either an array or a map.
+
+array approach:
+
+```
+environment:
+  RACK_ENV: development
+  SHOW: "true"
+  USER_INPUT:
+```
+
+map approach:
+
+```
+environment:
+  - RACK_ENV=development
+  - SHOW=true
+  - USER_INPUT
+```
+
+* ### image:
+
+The `image` parameter specifies the `image` from which to initiate the container.
+
+* ### networks:
+
+`Networks` serve as the intermediary layer facilitating communication among services, and the `networks` nested within services define the `networks` to which service containers are connected.
+
+`e.g`
+
+```
+services:
+  some-service:
+    networks:
+      - some-network
+      - other-network
+```
+
+* ### ports:
+
+Reveals container `ports`.
+
