@@ -35,7 +35,6 @@ docker run -d --name doctors-directory-server -p 5002:5002 -e DATABASE_HOST=mong
 	- published port:3000
 	- exposed port: 3000
 	- container name: doctors-directory-client
-	- environment variable DATABASE_HOST: mongo
 
 ```
 docker run -d --name doctors-directory-client -p 3000:3000 --network=doctors-directory-network tm63/doctors-directory-react-gql-client:env-config-update-commit
