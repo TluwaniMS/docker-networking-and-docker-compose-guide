@@ -106,3 +106,16 @@ services:
 
 Reveals container `ports`.
 
+## Practice Guide:
+
+###### Start up the fullstack application using the compose file:
+
+```
+docker compose -f doctors-directory-compose-file.yaml up -d 
+```
+
+###### Shut down the fullstcak application using the compose file:
+
+```
+docker compose -f doctors-directory-compose-file.yaml down
+```
