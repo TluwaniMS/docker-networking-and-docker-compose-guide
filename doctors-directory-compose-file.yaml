@@ -1,0 +1,31 @@
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - doctors-directory-network
+  
+  doctors-directory-server:
+    image: tm63/doctors-directory-gql-node-js-server:migration-script-int-commit
+    ports:
+      - 5002:5002
+    networks:
+      - doctors-directory-network
+    environment:
+      - DATABASE_HOST=mongo
+    depends_on:
+      - mongo
+    
+  doctors-directory-client:
+    image: tm63/doctors-directory-react-gql-client:env-config-update-commit
+    ports:
+      - 3000:3000
+    networks:
+      - doctors-directory-network
+    depends_on:
+      - doctors-directory-server
+
+networks:
+  doctors-directory-network:
+    driver: bridge
